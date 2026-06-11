@@ -1,8 +1,8 @@
 
 #!/bin/bash
 
-TOKEN="${{ secrets.TELEGRAM_API_TOKEN }}"
-CHAT_ID="${{ secrets.TBOT_API_USERNAME }}"
+TOKEN=""  # Add your Telegram Bot Token here
+CHAT_ID="" # Add your Telegram Chat ID here
 echo "---------------------------------------------------"
 echo "...Health Checker..."
 sleep 2
