@@ -12,14 +12,10 @@ Sends a formatted report to your Telegram chat automatically
 ## Prerequisites
 - Linux server (Ubuntu/Debian)
 - Telegram Bot Token and Chat ID
-- sysstat package installed (for CPU monitoring)
 
-bashsudo apt install sysstat
-Setup
-
+## Setup
 Clone the repo
-
-bashgit clone https://github.com/deepakraj-dj/linux-health-monitor
+git clone https://github.com/deepakraj-dj/linux-health-monitor
 
 Add your Telegram credentials in health_monitor.sh
 
@@ -28,7 +24,7 @@ CHAT_ID=""  # Your Telegram Chat ID
 
 Make it executable
 
-bashchmod +x health_monitor.sh
+chmod +x health_monitor.sh
 
 Run it
 
