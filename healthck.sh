@@ -1,8 +1,8 @@
 
 #!/bin/bash
 
-TOKEN="${{ secrets.TELEGRAM_API_TOKEN }}"
-CHAT_ID="${{ secrets.TBOT_API_USERNAME }}"
+TOKEN=""
+CHAT_ID=""
 echo "---------------------------------------------------"
 echo "...Health Checker..."
 sleep 2
