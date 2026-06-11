@@ -27,10 +27,10 @@ Sends a formatted report to your Telegram chat automatically
  - chmod +x health_monitor.sh
 
 - Run it
- - bash./health_monitor.sh
+  - bash./health_monitor.sh
 - Automate with Cron
- - Run every hour automatically:
-   - bashcrontab -e
+  - Run every hour automatically:
+    - bashcrontab -e
 # add this line:
 0 * * * * /path/to/health_monitor.sh
 Sample Telegram Output
