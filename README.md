@@ -24,7 +24,7 @@ Sends a formatted report to your Telegram chat automatically
   - CHAT_ID=""  # Your Telegram Chat ID
 
 - Make it executable
- - chmod +x health_monitor.sh
+  - chmod +x health_monitor.sh
 
 - Run it
   - bash./health_monitor.sh
