@@ -23,16 +23,14 @@ Sends a formatted report to your Telegram chat automatically
   - bashTOKEN=""    # Your Telegram Bot Token
   - CHAT_ID=""  # Your Telegram Chat ID
 
-Make it executable
+- Make it executable
+ - chmod +x health_monitor.sh
 
-chmod +x health_monitor.sh
-
-Run it
-
-bash./health_monitor.sh
-Automate with Cron
-Run every hour automatically:
-bashcrontab -e
+- Run it
+ - bash./health_monitor.sh
+- Automate with Cron
+ - Run every hour automatically:
+  - bashcrontab -e
 # add this line:
 0 * * * * /path/to/health_monitor.sh
 Sample Telegram Output
