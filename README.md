@@ -15,7 +15,7 @@ Sends a formatted report to your Telegram chat automatically
 
 ## Setup
 
-- ***Clone the repo***
+- **Clone the repo**
   
   - git clone https://github.com/deepakraj-dj/linux-health-monitor
 
