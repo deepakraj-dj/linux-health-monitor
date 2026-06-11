@@ -34,6 +34,7 @@ Sends a formatted report to your Telegram chat automatically
     - bashcrontab -e
   
 # add this line:
+
 0 * * * * /path/to/health_monitor.sh
 Sample Telegram Output
 Boss, The scan has been completed here is the report,
