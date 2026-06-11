@@ -1,8 +1,8 @@
 
 #!/bin/bash
 
-TOKEN=""
-CHAT_ID=""
+TOKEN="" #Token that been provided by telegram after creating an BOT
+CHAT_ID="" #CHAT_ID that been provided by telegram after creating an BOT
 echo "---------------------------------------------------"
 echo "...Health Checker..."
 sleep 2
