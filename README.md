@@ -30,6 +30,7 @@ Sends a formatted report to your Telegram chat automatically
   - bash./health_monitor.sh
 - Automate with Cron
   - Run every hour automatically:
+    
     - bashcrontab -e
   
 # add this line:
