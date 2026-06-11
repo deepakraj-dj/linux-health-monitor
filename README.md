@@ -36,8 +36,7 @@ Sends a formatted report to your Telegram chat automatically
       
 
 
-
-Sample Telegram Output
+## Sample Telegram Output
 Boss, The scan has been completed here is the report,
 
 📊 Available RAM : 1.2G
