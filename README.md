@@ -13,8 +13,14 @@ Sends a formatted report to your Telegram chat automatically
 - Linux server (Ubuntu/Debian)
 - Telegram Bot Token and Chat ID
 
-## Setup
+## Tech Stack
+ - Bash Scripting
+ - Telegram Bot API
+ - Linux system tools (free, df, mpstat, uptime)
+ - curl for API calls
+ - EC2 (Ubuntu)
 
+## Setup
 - **Clone the repo**
   
   - git clone https://github.com/deepakraj-dj/linux-health-monitor
@@ -47,10 +53,4 @@ The last Failed SSH Attempts
 Failed password for root from 192.168.1.1
 
 Thanks, let me know if I want to assist with anything 😄
-Tech Stack
 
-Bash Scripting
-Telegram Bot API
-Linux system tools (free, df, mpstat, uptime)
-curl for API calls
-EC2 (Ubuntu)
