@@ -14,8 +14,8 @@ Sends a formatted report to your Telegram chat automatically
 - Telegram Bot Token and Chat ID
 
 ## Setup
--Clone the repo
---git clone https://github.com/deepakraj-dj/linux-health-monitor
+- Clone the repo
+-- git clone https://github.com/deepakraj-dj/linux-health-monitor
 
 Add your Telegram credentials in health_monitor.sh
 
