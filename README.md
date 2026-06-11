@@ -1,2 +1,55 @@
-# linux-health-monitor
-Bash-based Linux monitor that tracks CPU, memory, disk, and failed SSH logins — sends real-time alerts straight to Telegram.
+## Linux System Health Monitor with Telegram Alerts
+A lightweight Bash script that monitors your Linux server health and sends real-time reports straight to your Telegram.
+
+## What It Does
+Checks available RAM, disk space, CPU usage, and system uptime
+Grabs the last failed SSH login attempts from auth.log
+Sends a formatted report to your Telegram chat automatically
+
+## Prerequisites
+Linux server (Ubuntu/Debian)
+Telegram Bot Token and Chat ID
+sysstat package installed (for CPU monitoring)
+
+bashsudo apt install sysstat
+Setup
+
+Clone the repo
+
+bashgit clone https://github.com/deepakraj-dj/linux-health-monitor
+
+Add your Telegram credentials in health_monitor.sh
+
+bashTOKEN=""    # Your Telegram Bot Token
+CHAT_ID=""  # Your Telegram Chat ID
+
+Make it executable
+
+bashchmod +x health_monitor.sh
+
+Run it
+
+bash./health_monitor.sh
+Automate with Cron
+Run every hour automatically:
+bashcrontab -e
+# add this line:
+0 * * * * /path/to/health_monitor.sh
+Sample Telegram Output
+Boss, The scan has been completed here is the report,
+
+📊 Available RAM : 1.2G
+Free Space on disk : 8.5G
+CPU Usage is: 23%
+System Uptime is up 2 hours, 30 minutes
+The last Failed SSH Attempts
+Failed password for root from 192.168.1.1
+
+Thanks, let me know if I want to assist with anything 😄
+Tech Stack
+
+Bash Scripting
+Telegram Bot API
+Linux system tools (free, df, mpstat, uptime)
+curl for API calls
+EC2 (Ubuntu)
