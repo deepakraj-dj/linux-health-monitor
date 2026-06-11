@@ -10,9 +10,9 @@ Sends a formatted report to your Telegram chat automatically
 
 
 ## Prerequisites
-Linux server (Ubuntu/Debian)
-Telegram Bot Token and Chat ID
-sysstat package installed (for CPU monitoring)
+- Linux server (Ubuntu/Debian)
+- Telegram Bot Token and Chat ID
+- sysstat package installed (for CPU monitoring)
 
 bashsudo apt install sysstat
 Setup
