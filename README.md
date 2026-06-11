@@ -2,10 +2,12 @@
 ## Overview
 A lightweight Bash script that monitors your Linux server health and sends real-time reports straight to your Telegram.
 
+
 ## What It Does
 Checks available RAM, disk space, CPU usage, and system uptime
 Grabs the last failed SSH login attempts from auth.log
 Sends a formatted report to your Telegram chat automatically
+
 
 ## Prerequisites
 Linux server (Ubuntu/Debian)
