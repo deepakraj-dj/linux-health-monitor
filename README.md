@@ -1,4 +1,4 @@
-## Linux System Health Monitor with Telegram Alerts
+# Linux System Health Monitor with Telegram Alerts
 A lightweight Bash script that monitors your Linux server health and sends real-time reports straight to your Telegram.
 
 ## What It Does
