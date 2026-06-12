@@ -10,7 +10,7 @@ sleep 2
 RAM=$(free -h | grep "Mem" | awk '{print $4}')
 echo "Available RAM IS: $RAM"
 
-DS=$(df -h | grep "sda2" | awk '{print $4}')
+DS=$(df -h | grep  "/$" | awk '{print $4}')
 echo "Free Space on disk : $DS"
 
 CPU=$(mpstat 1 1 | grep "Average" | awk '{print 100-$12}')
