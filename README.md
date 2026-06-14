@@ -3,7 +3,7 @@
 A lightweight Bash script that monitors your Linux server health and sends real-time reports straight to your Telegram. This tool provides continuous server monitoring with automated scheduling using cron jobs and secure token management through a separate configuration file.
 
 ## Architecture Diagram
-![Architecture Diagram](docs/architecture_diagram.png)
+![Architecture Diagram](docs/architecture diagram.png)
 
 ## What It Does
 
