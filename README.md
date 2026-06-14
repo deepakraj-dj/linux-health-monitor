@@ -1,27 +1,217 @@
 # Linux System Health Monitor with Telegram Alerts
 ## Overview
-A lightweight Bash script that monitors your Linux server health and sends real-time reports straight to your Telegram. This tool provides continuous server monitoring with automated scheduling using cron jobs and secure token management through a separate configuration file.
+This project automates server health monitoring using a simple Bash script. Instead of manually checking your server status, the script collects key metrics and sends them directly to your Telegram account via cron job automation. Perfect for DevOps engineers, system administrators, and anyone who needs to keep tabs on their Linux servers.
 
 ## Architecture Diagram
 ![Architecture Diagram](docs/architecture_diagram.png)
 
+## Key Features:
+ - Real-time CPU, RAM, and disk space monitoring
+ - Tracks system uptime and failed SSH login attempts
+ - Automated execution every 30 minutes via cron jobs
+ - Secure token management using separate configuration file 
+ - Lightweight implementation with minimal server overhead
+ - Direct Telegram notifications to your phone or desktop
+
 ## What It Does
 
-Checks available RAM, disk space, CPU usage, and system uptime
-Grabs the last failed SSH login attempts from auth.log
-Sends a formatted report to your Telegram chat automatically
+## How It All Works Together
+The monitoring solution works in three main Steps:
+### Step 1: Scheduling
+- The cron job triggers automatically every 30 minutes using the schedule */30 * * * *. No manual intervention needed - it runs completely in the background.
+
+### Step 2: Data Collection
+ - When the script runs, it collects five critical server metrics:
+ 1. CPU usage percentage using mpstat
+ 2. Available RAM in human-readable format
+ 3. Free disk space on the root partition
+ 4. System uptime in a friendly format
+ 5. Last 5 failed SSH login attempts from auth.log
+
+
+### Step 3: Notification
+The script sources your Telegram credentials from a secure configuration file, builds a formatted message with all collected metrics, and sends it via Telegram's BOT API. You receive the report instantly on your Telegram app.
+
+The architecture ensures credentials remain secure, the script runs automatically without passwords, and you get consistent monitoring coverage around the clock.
 
 
 ## Prerequisites
-- Linux server (Ubuntu/Debian)
-- Telegram Bot Token and Chat ID
+### System Requirements:
 
-## Tech Stack
- - Bash Scripting
- - Telegram Bot API
- - Linux system tools (free, df, mpstat, uptime)
- - curl for API calls
- - EC2 (Ubuntu)
+Linux server running Ubuntu or Debian-based distribution
+Bash shell (version 4.0 or higher)
+Root or sudo access (for reading auth.log)
+Basic commands: free, df, uptime, grep, mpstat, curl
+
+### Telegram Setup:
+
+Telegram account (create one at telegram.org if you don't have it)
+Telegram BOT token (create a bot via @BotFather on Telegram)
+Your Telegram Chat ID (message @userinfobot to get your ID)
+
+
+### File Permissions:
+
+Write access to /home/your_username/ directory
+Read access to /var/log/auth.log
+Execute permissions for the script
+
+## What I Learned
+Step 1: Create Configuration Directory
+
+bashmkdir -p /home/mark/test/bash_script
+cd /home/mark/test/bash_script
+
+Step 2: Create Telegram Configuration File
+
+bashnano telegram_env
+
+Add your Telegram credentials:
+
+bashTBOT_TOKEN="your_telegram_bot_token_here"
+TCHATID="your_telegram_chat_id_here"
+
+Save with Ctrl + X, then Y, then Enter.
+
+Step 3: Set Secure Permissions
+
+Restrict access to your token file:
+
+bashchmod 600 telegram_env
+
+This ensures only you can read the file.
+
+Step 4: Create the Monitoring Script
+
+bashnano health_monitor.sh
+
+Paste this script:
+
+bash#!/bin/bash
+
+# Source token from secure file
+source /home/mark/test/bash_script/telegram_env
+
+TOKEN="$TBOT_TOKEN"
+CHAT_ID="$TCHATID"
+
+echo "---------------------------------------------------"
+echo "...Health Checker..."
+sleep 2
+
+# Collect metrics
+RAM=$(free -h | grep "Mem" | awk '{print $4}')
+echo "Available RAM IS: $RAM"
+
+DS=$(df -h | grep "/$" | awk '{print $4}')
+echo "Free Space on disk : $DS"
+
+CPU=$(mpstat 1 1 | grep "Average" | awk '{print 100-$12}')
+echo "CPU Usage is: $CPU%"
+
+up=$(uptime -p)
+echo "System Uptime is $up"
+
+# Get SSH failed attempts
+log_file="/var/log/auth.log"
+echo "Checking Failed SSH Attempts..."
+sleep 1
+
+SSH_ATTEMPTS=$(sudo grep -i "failed password" $log_file 2>/dev/null | tail -5)
+
+# Check if empty
+if [ -z "$SSH_ATTEMPTS" ]; then
+    SSH_ATTEMPTS="No failed SSH attempts detected ✅"
+fi
+
+echo "$SSH_ATTEMPTS"
+
+# Build message
+message="Boss, The scan has been completed here is the report:
+
+📊 Available RAM: $RAM
+💾 Free Space on disk: $DS
+🔥 CPU Usage: $CPU%
+⏱️ System Uptime: $up
+
+🔐 Last Failed SSH Attempts:
+$SSH_ATTEMPTS
+
+Thanks, let me know if you need assistance! 😄"
+
+echo "---------------------------------------------------"
+echo "Sending to Telegram..."
+
+# Send to Telegram
+curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+  -d "chat_id=${CHAT_ID}" \
+  -d "text=${message}"
+
+if [ $? -eq 0 ]; then
+    echo "✅ Report sent successfully!"
+else
+    echo "❌ Failed to send report"
+fi
+
+echo "---------------------------------------------------"
+
+Save with Ctrl + X, then Y, then Enter.
+
+Step 5: Make Script Executable
+
+bashchmod +x health_monitor.sh
+
+Step 6: Configure Sudo Without Password
+
+Allow the script to read auth.log without password prompts:
+
+bashsudo visudo
+
+Add this line at the END of the file:
+
+bashyour_username ALL=(ALL) NOPASSWD: /bin/grep
+
+Replace your_username with your actual username. Example:
+
+bashmark ALL=(ALL) NOPASSWD: /bin/grep
+
+Save with Ctrl + X, then Y, then Enter.
+
+Step 7: Schedule with Cron Job
+
+Open crontab editor:
+
+bashcrontab -e
+
+Add this line to run every 30 minutes:
+
+bash*/30 * * * * /home/mark/test/bash_script/health_monitor.sh >> /var/log/server-monitor.log 2>&1
+
+Save with Ctrl + X, then Y, then Enter.
+
+Step 8: Verify Cron Job Installation
+
+bashcrontab -l
+
+You should see your monitoring script listed.
+
+Step 9: Test
+
+Run the script manually to verify everything works:
+
+bash/home/mark/test/bash_script/health_monitor.sh
+
+You should see:
+
+
+Metrics printed to console
+"✅ Report sent successfully!" message
+Report appears in your Telegram chat within seconds
+
+
+Check the log file:
+
+bashtail -f /var/log/server-monitor.log
 
 ## Setup
 - **Clone the repo**
