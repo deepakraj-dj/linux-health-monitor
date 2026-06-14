@@ -15,9 +15,27 @@ This project automates server health monitoring using a simple Bash script. Inst
 
 ## What It Does
 
-Checks available RAM, disk space, CPU usage, and system uptime
-Grabs the last failed SSH login attempts from auth.log
-Sends a formatted report to your Telegram chat automatically
+## How It All Works Together
+The monitoring solution works in three main Steps:
+
+Step 1: Scheduling
+The cron job triggers automatically every 30 minutes using the schedule */30 * * * *. No manual intervention needed - it runs completely in the background.
+
+Step 2: Data Collection
+When the script runs, it collects five critical server metrics:
+
+
+CPU usage percentage using mpstat
+Available RAM in human-readable format
+Free disk space on the root partition
+System uptime in a friendly format
+Last 5 failed SSH login attempts from auth.log
+
+
+Step 3: Notification
+The script sources your Telegram credentials from a secure configuration file, builds a formatted message with all collected metrics, and sends it via Telegram's BOT API. You receive the report instantly on your Telegram app.
+
+The architecture ensures credentials remain secure, the script runs automatically without passwords, and you get consistent monitoring coverage around the clock.
 
 
 ## Prerequisites
