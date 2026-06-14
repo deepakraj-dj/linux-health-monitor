@@ -18,17 +18,15 @@ This project automates server health monitoring using a simple Bash script. Inst
 ## How It All Works Together
 The monitoring solution works in three main Steps:
 ### Step 1: Scheduling
-The cron job triggers automatically every 30 minutes using the schedule */30 * * * *. No manual intervention needed - it runs completely in the background.
+- The cron job triggers automatically every 30 minutes using the schedule */30 * * * *. No manual intervention needed - it runs completely in the background.
 
 ### Step 2: Data Collection
-When the script runs, it collects five critical server metrics:
-
-
-CPU usage percentage using mpstat
-Available RAM in human-readable format
-Free disk space on the root partition
-System uptime in a friendly format
-Last 5 failed SSH login attempts from auth.log
+ - When the script runs, it collects five critical server metrics:
+ 1. CPU usage percentage using mpstat
+ 2. Available RAM in human-readable format
+ 3. Free disk space on the root partition
+ 4. System uptime in a friendly format
+ 5. Last 5 failed SSH login attempts from auth.log
 
 
 ### Step 3: Notification
