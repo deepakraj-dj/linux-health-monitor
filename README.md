@@ -1,9 +1,17 @@
 # Linux System Health Monitor with Telegram Alerts
 ## Overview
-A lightweight Bash script that monitors your Linux server health and sends real-time reports straight to your Telegram. This tool provides continuous server monitoring with automated scheduling using cron jobs and secure token management through a separate configuration file.
+This project automates server health monitoring using a simple Bash script. Instead of manually checking your server status, the script collects key metrics and sends them directly to your Telegram account via cron job automation. Perfect for DevOps engineers, system administrators, and anyone who needs to keep tabs on their Linux servers.
 
 ## Architecture Diagram
 ![Architecture Diagram](docs/architecture_diagram.png)
+
+## Key Features:
+ - Real-time CPU, RAM, and disk space monitoring
+ - Tracks system uptime and failed SSH login attempts
+ - Automated execution every 30 minutes via cron jobs
+ - Secure token management using separate configuration file 
+ - Lightweight implementation with minimal server overhead
+ - Direct Telegram notifications to your phone or desktop
 
 ## What It Does
 
