@@ -56,12 +56,162 @@ Write access to /home/your_username/ directory
 Read access to /var/log/auth.log
 Execute permissions for the script
 
-## Tech Stack
- - Bash Scripting
- - Telegram Bot API
- - Linux system tools (free, df, mpstat, uptime)
- - curl for API calls
- - EC2 (Ubuntu)
+## What I Learned
+Step 1: Create Configuration Directory
+
+bashmkdir -p /home/mark/test/bash_script
+cd /home/mark/test/bash_script
+
+Step 2: Create Telegram Configuration File
+
+bashnano telegram_env
+
+Add your Telegram credentials:
+
+bashTBOT_TOKEN="your_telegram_bot_token_here"
+TCHATID="your_telegram_chat_id_here"
+
+Save with Ctrl + X, then Y, then Enter.
+
+Step 3: Set Secure Permissions
+
+Restrict access to your token file:
+
+bashchmod 600 telegram_env
+
+This ensures only you can read the file.
+
+Step 4: Create the Monitoring Script
+
+bashnano health_monitor.sh
+
+Paste this script:
+
+bash#!/bin/bash
+
+# Source token from secure file
+source /home/mark/test/bash_script/telegram_env
+
+TOKEN="$TBOT_TOKEN"
+CHAT_ID="$TCHATID"
+
+echo "---------------------------------------------------"
+echo "...Health Checker..."
+sleep 2
+
+# Collect metrics
+RAM=$(free -h | grep "Mem" | awk '{print $4}')
+echo "Available RAM IS: $RAM"
+
+DS=$(df -h | grep "/$" | awk '{print $4}')
+echo "Free Space on disk : $DS"
+
+CPU=$(mpstat 1 1 | grep "Average" | awk '{print 100-$12}')
+echo "CPU Usage is: $CPU%"
+
+up=$(uptime -p)
+echo "System Uptime is $up"
+
+# Get SSH failed attempts
+log_file="/var/log/auth.log"
+echo "Checking Failed SSH Attempts..."
+sleep 1
+
+SSH_ATTEMPTS=$(sudo grep -i "failed password" $log_file 2>/dev/null | tail -5)
+
+# Check if empty
+if [ -z "$SSH_ATTEMPTS" ]; then
+    SSH_ATTEMPTS="No failed SSH attempts detected ✅"
+fi
+
+echo "$SSH_ATTEMPTS"
+
+# Build message
+message="Boss, The scan has been completed here is the report:
+
+📊 Available RAM: $RAM
+💾 Free Space on disk: $DS
+🔥 CPU Usage: $CPU%
+⏱️ System Uptime: $up
+
+🔐 Last Failed SSH Attempts:
+$SSH_ATTEMPTS
+
+Thanks, let me know if you need assistance! 😄"
+
+echo "---------------------------------------------------"
+echo "Sending to Telegram..."
+
+# Send to Telegram
+curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+  -d "chat_id=${CHAT_ID}" \
+  -d "text=${message}"
+
+if [ $? -eq 0 ]; then
+    echo "✅ Report sent successfully!"
+else
+    echo "❌ Failed to send report"
+fi
+
+echo "---------------------------------------------------"
+
+Save with Ctrl + X, then Y, then Enter.
+
+Step 5: Make Script Executable
+
+bashchmod +x health_monitor.sh
+
+Step 6: Configure Sudo Without Password
+
+Allow the script to read auth.log without password prompts:
+
+bashsudo visudo
+
+Add this line at the END of the file:
+
+bashyour_username ALL=(ALL) NOPASSWD: /bin/grep
+
+Replace your_username with your actual username. Example:
+
+bashmark ALL=(ALL) NOPASSWD: /bin/grep
+
+Save with Ctrl + X, then Y, then Enter.
+
+Step 7: Schedule with Cron Job
+
+Open crontab editor:
+
+bashcrontab -e
+
+Add this line to run every 30 minutes:
+
+bash*/30 * * * * /home/mark/test/bash_script/health_monitor.sh >> /var/log/server-monitor.log 2>&1
+
+Save with Ctrl + X, then Y, then Enter.
+
+Step 8: Verify Cron Job Installation
+
+bashcrontab -l
+
+You should see your monitoring script listed.
+
+Step 9: Test
+
+Run the script manually to verify everything works:
+
+bash/home/mark/test/bash_script/health_monitor.sh
+
+You should see:
+
+
+Metrics printed to console
+"✅ Report sent successfully!" message
+Report appears in your Telegram chat within seconds
+
+
+Check the log file:
+
+bashtail -f /var/log/server-monitor.log
 
 ## Setup
 - **Clone the repo**
