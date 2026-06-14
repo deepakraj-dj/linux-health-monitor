@@ -38,8 +38,25 @@ The architecture ensures credentials remain secure, the script runs automaticall
 
 
 ## Prerequisites
-- Linux server (Ubuntu/Debian)
-- Telegram Bot Token and Chat ID
+### System Requirements:
+
+Linux server running Ubuntu or Debian-based distribution
+Bash shell (version 4.0 or higher)
+Root or sudo access (for reading auth.log)
+Basic commands: free, df, uptime, grep, mpstat, curl
+
+### Telegram Setup:
+
+Telegram account (create one at telegram.org if you don't have it)
+Telegram BOT token (create a bot via @BotFather on Telegram)
+Your Telegram Chat ID (message @userinfobot to get your ID)
+
+
+### File Permissions:
+
+Write access to /home/your_username/ directory
+Read access to /var/log/auth.log
+Execute permissions for the script
 
 ## Tech Stack
  - Bash Scripting
