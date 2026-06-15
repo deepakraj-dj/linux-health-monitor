@@ -56,7 +56,7 @@ Write access to /home/your_username/ directory
 Read access to /var/log/auth.log
 Execute permissions for the script
 
-## What I Learned
+## Get it running
 Step 1: Create Configuration Directory
 
 ```bash
@@ -209,6 +209,8 @@ Run the script manually to verify everything works:
 ```bash
 /home/mark/test/bash_script/health_monitor.sh
 ```
+## What I Learned
+
 You should see:
 
 Metrics printed to console
