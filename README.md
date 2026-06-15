@@ -66,9 +66,8 @@ cd /home/mark/test/bash_script
 Step 2: Create Telegram Configuration File
 ```bash
 nano telegram_env
-
-Add your Telegram credentials:
 ```
+Add your Telegram credentials:
 ```bash
 TBOT_TOKEN="your_telegram_bot_token_here"
 TCHATID="your_telegram_chat_id_here"
