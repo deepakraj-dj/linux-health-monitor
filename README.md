@@ -54,9 +54,7 @@ Write access to /home/your_username/ directory
 Read access to /var/log/auth.log
 Execute permissions for the script
 
-## Get it running
-
-- 
+## Get it running 
     
 Step 1: Clone the repo
 ```bash
