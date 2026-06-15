@@ -172,8 +172,8 @@ Allow the script to read auth.log without password prompts:
 sudo visudo
 ```
 Add this line at the END of the file:
-```
-bashyour_username ALL=(ALL) NOPASSWD: /bin/grep
+```bash
+your_username ALL=(ALL) NOPASSWD: /bin/grep
 
 Replace your_username with your actual username. Example:
 
