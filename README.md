@@ -62,10 +62,11 @@ Step 1: Create Configuration Directory
 ```bash
 mkdir -p /home/mark/test/bash_script
 cd /home/mark/test/bash_script
-
+```
 Step 2: Create Telegram Configuration File
-
-bashnano telegram_env
+```
+bash
+nano telegram_env
 
 Add your Telegram credentials:
 ```
