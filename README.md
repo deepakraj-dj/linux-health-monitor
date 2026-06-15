@@ -13,8 +13,6 @@ This project automates server health monitoring using a simple Bash script. Inst
  - Lightweight implementation with minimal server overhead
  - Direct Telegram notifications to your phone or desktop
 
-## What It Does
-
 ## How It All Works Together
 The monitoring solution works in three main Steps:
 ### Step 1: Scheduling
