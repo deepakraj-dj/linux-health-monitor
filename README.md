@@ -18,7 +18,7 @@ The monitoring solution works in three main Steps:
 ### Step 1: Scheduling
 - The cron job triggers automatically every 30 minutes using the schedule
  ```
-  */30 * * * *.
+  */30 * * * *
 ```
 No manual intervention needed - it runs completely in the background.
 
