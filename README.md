@@ -56,21 +56,14 @@ Execute permissions for the script
 
 ## Get it running
 
-- **Clone the repo**
-  
-  - git clone https://github.com/deepakraj-dj/linux-health-monitor
+- 
     
-Step 1: Create Configuration Directory
+Step 1: Clone the repo
+```bash
+  git clone https://github.com/deepakraj-dj/linux-health-monitor
+```
 
-```bash
-mkdir -p /home/mark/test/bash_script
-cd /home/mark/test/bash_script
-```
-Step 2: Create Telegram Configuration File
-```bash
-nano telegram_env
-```
-Add your Telegram credentials:
+Step 2: Add your Telegram credentials in telegram_env:
 ```bash
 TBOT_TOKEN="your_telegram_bot_token_here"
 TCHATID="your_telegram_chat_id_here"
