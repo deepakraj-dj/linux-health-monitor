@@ -64,8 +64,7 @@ mkdir -p /home/mark/test/bash_script
 cd /home/mark/test/bash_script
 ```
 Step 2: Create Telegram Configuration File
-```
-bash
+```bash
 nano telegram_env
 
 Add your Telegram credentials:
@@ -80,18 +79,19 @@ Step 3: Set Secure Permissions
 
 Restrict access to your token file:
 
-bashchmod 600 telegram_env
-
+```bash
+chmod 600 telegram_env
+```
 This ensures only you can read the file.
 
 Step 4: Create the Monitoring Script
 
-bashnano health_monitor.sh
-
+```bash
+nano health_monitor.sh
+```
 Paste this script:
-
-bash#!/bin/bash
-
+```bash
+#!/bin/bash
 # Source token from secure file
 source /home/mark/test/bash_script/telegram_env
 
@@ -157,55 +157,60 @@ else
 fi
 
 echo "---------------------------------------------------"
-
+```
 Save with Ctrl + X, then Y, then Enter.
 
 Step 5: Make Script Executable
 
-bashchmod +x health_monitor.sh
-
+```bash
+chmod +x health_monitor.sh
+```
 Step 6: Configure Sudo Without Password
 
 Allow the script to read auth.log without password prompts:
 
-bashsudo visudo
-
+```bash
+sudo visudo
+```
 Add this line at the END of the file:
-
+```
 bashyour_username ALL=(ALL) NOPASSWD: /bin/grep
 
 Replace your_username with your actual username. Example:
 
 bashmark ALL=(ALL) NOPASSWD: /bin/grep
-
+```
 Save with Ctrl + X, then Y, then Enter.
 
 Step 7: Schedule with Cron Job
 
 Open crontab editor:
 
-bashcrontab -e
-
+```bash
+crontab -e
+```
 Add this line to run every 30 minutes:
 
-bash*/30 * * * * /home/mark/test/bash_script/health_monitor.sh >> /var/log/server-monitor.log 2>&1
-
+```bash
+*/30 * * * * /home/mark/test/bash_script/health_monitor.sh >> /var/log/server-monitor.log 2>&1
+```
 Save with Ctrl + X, then Y, then Enter.
 
 Step 8: Verify Cron Job Installation
 
-bashcrontab -l
-
+```bash
+crontab -l
+```
 You should see your monitoring script listed.
 
 Step 9: Test
 
 Run the script manually to verify everything works:
 
-bash/home/mark/test/bash_script/health_monitor.sh
-
+```bash
+/home/mark/test/bash_script/health_monitor.sh
+```
 You should see:
-
 
 Metrics printed to console
 "✅ Report sent successfully!" message
@@ -214,8 +219,9 @@ Report appears in your Telegram chat within seconds
 
 Check the log file:
 
-bashtail -f /var/log/server-monitor.log
-
+```bash
+tail -f /var/log/server-monitor.log
+```
 ## Setup
 - **Clone the repo**
   
@@ -233,9 +239,10 @@ bashtail -f /var/log/server-monitor.log
 - Automate with Cron
   - Run every hour automatically:
     
-    - bashcrontab -e
-    - 0 * * * * /path/to/health_monitor.sh
-      
+    - ```bash
+      crontab -e
+      0 * * * * /path/to/health_monitor.sh
+      ```
 
 
 ## Sample Telegram Output
