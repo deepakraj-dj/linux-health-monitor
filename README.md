@@ -230,3 +230,13 @@ Boss, The scan has been completed here is the report,
 
 Thanks, let me know if you need assistance! 😄
 
+# File Structure
+.
+├── docs/                      
+│   └── architecture_diagram.png           #architecture diagram of full flow
+│       
+├── .gitignore                 
+├── LICENSE
+├── README.md
+├── health_monitor.sh                     # bash script for monitoring and to send metrics to telegram
+
