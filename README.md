@@ -229,12 +229,13 @@ tail -f /var/log/server-monitor.log
 ## Sample Telegram Output
 Boss, The scan has been completed here is the report,
 
-📊 Available RAM : 1.2G
-Free Space on disk : 8.5G
-CPU Usage is: 23%
-System Uptime is up 2 hours, 30 minutes
-The last Failed SSH Attempts
-Failed password for root from 192.168.1.1
+- Boss, The scan has been completed here is the report:
+📊 Available RAM: $RAM
+💾 Free Space on disk: $DS
+🔥 CPU Usage: $CPU%
+⏱️ System Uptime: $up
 
-Thanks, let me know if I want to assist with anything 😄
+🔐 Last Failed SSH Attempts: 192.168.1.1 
+
+Thanks, let me know if you need assistance! 😄
 
