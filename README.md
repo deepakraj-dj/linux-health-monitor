@@ -55,6 +55,10 @@ Read access to /var/log/auth.log
 Execute permissions for the script
 
 ## Get it running
+
+- **Clone the repo**
+  - git clone https://github.com/deepakraj-dj/linux-health-monitor
+    
 Step 1: Create Configuration Directory
 
 ```bash
@@ -207,42 +211,19 @@ Run the script manually to verify everything works:
 ```bash
 /home/mark/test/bash_script/health_monitor.sh
 ```
-## What I Learned
-
 You should see:
 
 Metrics printed to console
 "✅ Report sent successfully!" message
 Report appears in your Telegram chat within seconds
 
-
+if you faced an issue 
 Check the log file:
 
 ```bash
 tail -f /var/log/server-monitor.log
 ```
 ## Setup
-- **Clone the repo**
-  
-  - git clone https://github.com/deepakraj-dj/linux-health-monitor
-
-- Add your Telegram credentials in health_monitor.sh
-  - TOKEN=""    # Your Telegram Bot Token
-  - CHAT_ID=""  # Your Telegram Chat ID
-
-- Make it executable
-  - chmod +x health_monitor.sh
-
-- Run it
-  - bash./health_monitor.sh
-- Automate with Cron
-  - Run every hour automatically:
-    
-    - ```bash
-      crontab -e
-      0 * * * * /path/to/health_monitor.sh
-      ```
-
 
 ## Sample Telegram Output
 Boss, The scan has been completed here is the report,
