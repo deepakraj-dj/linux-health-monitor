@@ -57,6 +57,7 @@ Execute permissions for the script
 ## Get it running
 
 - **Clone the repo**
+  
   - git clone https://github.com/deepakraj-dj/linux-health-monitor
     
 Step 1: Create Configuration Directory
