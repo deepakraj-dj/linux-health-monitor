@@ -229,11 +229,10 @@ tail -f /var/log/server-monitor.log
 Boss, The scan has been completed here is the report,
 
 - Boss, The scan has been completed here is the report:
-📊 Available RAM: $RAM
-💾 Free Space on disk: $DS
-🔥 CPU Usage: $CPU%
-⏱️ System Uptime: $up
-
+📊 Available RAM: 700 Mib
+💾 Free Space on disk: 2 GB
+🔥 CPU Usage: $CPU$
+⏱️ System Uptime: 2 minutes
 🔐 Last Failed SSH Attempts: 192.168.1.1 
 
 Thanks, let me know if you need assistance! 😄
