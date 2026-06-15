@@ -54,23 +54,14 @@ Write access to /home/your_username/ directory
 Read access to /var/log/auth.log
 Execute permissions for the script
 
-## Get it running
-
-- **Clone the repo**
-  
-  - git clone https://github.com/deepakraj-dj/linux-health-monitor
+## Get it running 
     
-Step 1: Create Configuration Directory
+Step 1: Clone the repo
+```bash
+  git clone https://github.com/deepakraj-dj/linux-health-monitor
+```
 
-```bash
-mkdir -p /home/mark/test/bash_script
-cd /home/mark/test/bash_script
-```
-Step 2: Create Telegram Configuration File
-```bash
-nano telegram_env
-```
-Add your Telegram credentials:
+Step 2: Add your Telegram credentials in telegram_env:
 ```bash
 TBOT_TOKEN="your_telegram_bot_token_here"
 TCHATID="your_telegram_chat_id_here"
@@ -94,8 +85,8 @@ nano health_monitor.sh
 Paste this script:
 ```bash
 #!/bin/bash
-# Source token from secure file
-source /home/mark/test/bash_script/telegram_env
+# Source token from secure file                 
+source /home/mark/test/bash_script/telegram_env    # provide the path of the telegram_env file
 
 TOKEN="$TBOT_TOKEN"
 CHAT_ID="$TCHATID"
@@ -182,6 +173,8 @@ Replace your_username with your actual username. Example:
 
 bashmark ALL=(ALL) NOPASSWD: /bin/grep
 ```
+⚠️ This command gives sudo access to grep command meaning grep does not ask password when it is used after this configuration. Just for an Awareness.
+
 Save with Ctrl + X, then Y, then Enter.
 
 Step 7: Schedule with Cron Job
