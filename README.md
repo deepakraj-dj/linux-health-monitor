@@ -236,7 +236,7 @@ Thanks, let me know if you need assistance! 😄
 ├── docs/                      
 │   └── architecture_diagram.png           #architecture diagram of full flow
 │       
-├── .gitignore                 
+├── .gitignore                             # configure the env file in this file to ignore while pulling
 ├── LICENSE
 ├── README.md
 ├── health_monitor.sh                     # bash script for monitoring and to send metrics to telegram
