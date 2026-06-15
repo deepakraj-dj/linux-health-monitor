@@ -69,9 +69,9 @@ Step 2: Add your Telegram credentials in telegram_env:
 ```bash
 TBOT_TOKEN="your_telegram_bot_token_here"
 TCHATID="your_telegram_chat_id_here"
-
-Save with Ctrl + X, then Y, then Enter.
 ```
+Save with Ctrl + X, then Y, then Enter.
+
 Step 3: Set Secure Permissions
 
 Restrict access to your token file:
@@ -104,7 +104,7 @@ bashmark ALL=(ALL) NOPASSWD: /bin/grep
 
 Save with Ctrl + X, then Y, then Enter.
 
-Step 7: Schedule with Cron Job
+Step 6: Schedule with Cron Job
 
 Open crontab editor:
 
@@ -118,14 +118,14 @@ Add this line to run every 30 minutes:
 ```
 Save with Ctrl + X, then Y, then Enter.
 
-Step 8: Verify Cron Job Installation
+Step 7: Verify Cron Job Installation
 
 ```bash
 crontab -l
 ```
 You should see your monitoring script listed.
 
-Step 9: Test
+Step 8: Test
 
 Run the script manually to verify everything works:
 
