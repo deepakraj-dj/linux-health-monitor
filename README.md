@@ -81,88 +81,11 @@ chmod 600 telegram_env
 ```
 This ensures only you can read the file.
 
-Step 4: Create the Monitoring Script
-
+Step 4: Access the script named as health_monitor.sh and check it by running manually
 ```bash
-nano health_monitor.sh
+./health_monitor
 ```
-Paste this script:
-```bash
-#!/bin/bash
-# Source token from secure file                 
-source /home/mark/test/bash_script/telegram_env    # provide the path of the telegram_env file
-
-TOKEN="$TBOT_TOKEN"
-CHAT_ID="$TCHATID"
-
-echo "---------------------------------------------------"
-echo "...Health Checker..."
-sleep 2
-
-# Collect metrics
-RAM=$(free -h | grep "Mem" | awk '{print $4}')
-echo "Available RAM IS: $RAM"
-
-DS=$(df -h | grep "/$" | awk '{print $4}')
-echo "Free Space on disk : $DS"
-
-CPU=$(mpstat 1 1 | grep "Average" | awk '{print 100-$12}')
-echo "CPU Usage is: $CPU%"
-
-up=$(uptime -p)
-echo "System Uptime is $up"
-
-# Get SSH failed attempts
-log_file="/var/log/auth.log"
-echo "Checking Failed SSH Attempts..."
-sleep 1
-
-SSH_ATTEMPTS=$(sudo grep -i "failed password" $log_file 2>/dev/null | tail -5)
-
-# Check if empty
-if [ -z "$SSH_ATTEMPTS" ]; then
-    SSH_ATTEMPTS="No failed SSH attempts detected ✅"
-fi
-
-echo "$SSH_ATTEMPTS"
-
-# Build message
-message="Boss, The scan has been completed here is the report:
-
-📊 Available RAM: $RAM
-💾 Free Space on disk: $DS
-🔥 CPU Usage: $CPU%
-⏱️ System Uptime: $up
-
-🔐 Last Failed SSH Attempts:
-$SSH_ATTEMPTS
-
-Thanks, let me know if you need assistance! 😄"
-
-echo "---------------------------------------------------"
-echo "Sending to Telegram..."
-
-# Send to Telegram
-curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
-  -d "chat_id=${CHAT_ID}" \
-  -d "text=${message}"
-
-if [ $? -eq 0 ]; then
-    echo "✅ Report sent successfully!"
-else
-    echo "❌ Failed to send report"
-fi
-
-echo "---------------------------------------------------"
-```
-Save with Ctrl + X, then Y, then Enter.
-
-Step 5: Make Script Executable
-
-```bash
-chmod +x health_monitor.sh
-```
-Step 6: Configure Sudo Without Password
+Step 5: Configure Sudo Without Password
 
 Allow the script to read auth.log without password prompts:
 
