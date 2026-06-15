@@ -153,9 +153,20 @@ Boss, The scan has been completed here is the report,
 💾 Free Space on disk: 2 GB
 🔥 CPU Usage: $CPU$
 ⏱️ System Uptime: 2 minutes
-🔐 Last Failed SSH Attempts: 192.168.1.1 
+🔐 Last Failed SSH Attempts: 192.168.1.1
 
 Thanks, let me know if you need assistance! 😄
+
+
+ ## What I Learned
+ 
+- Bash Automation: Built cron-scheduled monitoring scripts that eliminate manual server health checks
+- System Metrics Collection: Extracted real-time CPU, RAM, disk data from Linux kernel using standard tools
+- Secure Credential Management: Separated API tokens from code using environment files with restricted permissions
+- External API Integration: Connected Telegram Bot API for real-time alerts and learned request-response handling
+- Linux Permissions & Automation: Configured sudoers access and cron scheduling for unattended operation
+- Error Handling & Reliability: Implemented validation for dependencies and API failures—learned why silent failures are dangerous
+
 
 # File Structure
 ```
