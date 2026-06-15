@@ -175,6 +175,8 @@ Replace your_username with your actual username. Example:
 
 bashmark ALL=(ALL) NOPASSWD: /bin/grep
 ```
+⚠️ This command gives sudo access to grep command meaning grep does not ask password when it is used after this configuration. Just for an Awareness.
+
 Save with Ctrl + X, then Y, then Enter.
 
 Step 7: Schedule with Cron Job
