@@ -87,8 +87,8 @@ nano health_monitor.sh
 Paste this script:
 ```bash
 #!/bin/bash
-# Source token from secure file
-source /home/mark/test/bash_script/telegram_env
+# Source token from secure file                 
+source /home/mark/test/bash_script/telegram_env    # provide the path of the telegram_env file
 
 TOKEN="$TBOT_TOKEN"
 CHAT_ID="$TCHATID"
