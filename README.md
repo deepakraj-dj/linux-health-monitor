@@ -224,7 +224,6 @@ Check the log file:
 ```bash
 tail -f /var/log/server-monitor.log
 ```
-## Setup
 
 ## Sample Telegram Output
 Boss, The scan has been completed here is the report,
