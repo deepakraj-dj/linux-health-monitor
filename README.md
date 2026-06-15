@@ -40,7 +40,7 @@ The architecture ensures credentials remain secure, the script runs automaticall
 
 Linux server running Ubuntu or Debian-based distribution
 Bash shell (version 4.0 or higher)
-Root or sudo access (for reading auth.log)
+Root or sudo access (for reading auth.log and grep)
 Basic commands: free, df, uptime, grep, mpstat, curl
 
 ### Telegram Setup:
@@ -59,7 +59,8 @@ Execute permissions for the script
 ## What I Learned
 Step 1: Create Configuration Directory
 
-bashmkdir -p /home/mark/test/bash_script
+```bash
+mkdir -p /home/mark/test/bash_script
 cd /home/mark/test/bash_script
 
 Step 2: Create Telegram Configuration File
@@ -67,12 +68,13 @@ Step 2: Create Telegram Configuration File
 bashnano telegram_env
 
 Add your Telegram credentials:
-
-bashTBOT_TOKEN="your_telegram_bot_token_here"
+```
+```bash
+TBOT_TOKEN="your_telegram_bot_token_here"
 TCHATID="your_telegram_chat_id_here"
 
 Save with Ctrl + X, then Y, then Enter.
-
+```
 Step 3: Set Secure Permissions
 
 Restrict access to your token file:
