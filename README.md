@@ -16,7 +16,11 @@ This project automates server health monitoring using a simple Bash script. Inst
 ## How It All Works Together
 The monitoring solution works in three main Steps:
 ### Step 1: Scheduling
-- The cron job triggers automatically every 30 minutes using the schedule */30 * * * *. No manual intervention needed - it runs completely in the background.
+- The cron job triggers automatically every 30 minutes using the schedule
+ ```
+  */30 * * * *.
+```
+No manual intervention needed - it runs completely in the background.
 
 ### Step 2: Data Collection
  - When the script runs, it collects five critical server metrics:
