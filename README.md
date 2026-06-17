@@ -116,7 +116,7 @@ crontab -e
 Add this line to run every 30 minutes:
 
 ```bash
-*/30 * * * * /home/mark/test/bash_script/health_monitor.sh >> /var/log/server-monitor.log 2>&1
+*/30 * * * * /path/to/the/bash_script/health_monitor.sh >> /var/log/server-monitor.log 2>&1
 ```
 Save with Ctrl + X, then Y, then Enter.
 
