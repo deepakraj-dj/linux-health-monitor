@@ -150,6 +150,11 @@ tail -f /var/log/server-monitor.log
   <img src="docs/telegram_message.jpg" alt="Script Output" width="600">
 </div>
 
+The bot reports:
+- Available RAM and disk space
+- CPU usage
+- System uptime
+- Failed SSH login attempts with timestamps
 
 
  ## What I Learned
