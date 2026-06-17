@@ -178,4 +178,5 @@ Thanks, let me know if you need assistance! 😄
 ├── LICENSE
 ├── README.md
 ├── health_monitor.sh                     # bash script for monitoring and to send metrics to telegram
+├── telegram_env.example
 ```
