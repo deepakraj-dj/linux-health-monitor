@@ -145,7 +145,8 @@ Check the log file:
 tail -f /var/log/server-monitor.log
 ```
 
-## Sample Telegram Output
+## Demo / Results
+
 <div align="center">
   <img src="docs/telegram_message.jpg" alt="Script Output" width="300">
 </div>
