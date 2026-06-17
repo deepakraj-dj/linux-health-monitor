@@ -146,16 +146,7 @@ tail -f /var/log/server-monitor.log
 ```
 
 ## Sample Telegram Output
-Boss, The scan has been completed here is the report,
-
-- Boss, The scan has been completed here is the report:
-📊 Available RAM: 700 Mib
-💾 Free Space on disk: 2 GB
-🔥 CPU Usage: $CPU$
-⏱️ System Uptime: 2 minutes
-🔐 Last Failed SSH Attempts: 192.168.1.1
-
-Thanks, let me know if you need assistance! 😄
+![telegram notification](docs/telegram_message.jpg)
 
 
  ## What I Learned
