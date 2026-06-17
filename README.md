@@ -173,7 +173,8 @@ The bot reports:
 # File Structure
 ```
 .
-├── docs/                      
+├── docs/
+|   ├── telegram_message.jpg                      
 │   └── architecture_diagram.png           #architecture diagram of full flow
 │       
 ├── .gitignore                             # configure the env file in this file to ignore while pulling
