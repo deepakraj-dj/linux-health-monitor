@@ -82,7 +82,7 @@ Change the Source location of the telegram_env in the source section in first li
 source /path/of/where/you/stored/telegram_env
 ```
 
-Step 3: Set Secure Permissions
+Step 4: Set Secure Permissions
 
 Restrict access to your token file:
 
@@ -91,11 +91,11 @@ chmod 600 telegram_env
 ```
 This ensures only you can read the file.
 
-Step 4: Access the script named as health_monitor.sh and check it by running manually
+Step 5: Access the script named as health_monitor.sh and check it by running manually
 ```bash
 ./health_monitor
 ```
-Step 5: Configure Sudo Without Password
+Step 6: Configure Sudo Without Password
 
 Allow the script to read auth.log without password prompts:
 
@@ -114,7 +114,7 @@ bashmark ALL=(ALL) NOPASSWD: /bin/grep
 
 Save with Ctrl + X, then Y, then Enter.
 
-Step 6: Schedule with Cron Job
+Step 7: Schedule with Cron Job
 
 Open crontab editor:
 
@@ -128,14 +128,14 @@ Add this line to run every 30 minutes:
 ```
 Save with Ctrl + X, then Y, then Enter.
 
-Step 7: Verify Cron Job Installation
+Step 8: Verify Cron Job Installation
 
 ```bash
 crontab -l
 ```
 You should see your monitoring script listed.
 
-Step 8: Test
+Step 9: Test
 
 Run the script manually to verify everything works:
 
