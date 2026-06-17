@@ -51,11 +51,12 @@ Thanks!
 EOF
 )
 
+
 echo "---------------------------------------------------"
 echo "Sending to Telegram..."
 
 # Send to Telegram with proper quoting
-curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+curl -s -m 10 -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
   -d "chat_id=${CHAT_ID}" \
   -d "text=${message}"
 
