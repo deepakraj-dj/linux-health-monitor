@@ -1,4 +1,5 @@
 # Linux System Health Monitor with Telegram Alerts
+
 ## Overview
 This project automates server health monitoring using a simple Bash script. Instead of manually checking your server status, the script collects key metrics and sends them directly to your Telegram account via cron job automation. Perfect for DevOps engineers, system administrators, and anyone who needs to keep tabs on their Linux servers.
 
@@ -62,14 +63,15 @@ Execute permissions for the script
     
 Step 1: Clone the repo
 ```bash
-  git clone https://github.com/deepakraj-dj/linux-health-monitor
+  git clone https://github.com/deepakraj-dj/linux-health-monitor.git
 ```
 
-Step 2: Add your Telegram credentials in telegram_env:
+Step 2: Add your Telegram credentials in telegram_env.example:
 ```bash
 TBOT_TOKEN="your_telegram_bot_token_here"
 TCHATID="your_telegram_chat_id_here"
 ```
+Rename the file as telegram_env then,
 Save with Ctrl + X, then Y, then Enter.
 
 Step 3: Set Secure Permissions
@@ -130,13 +132,8 @@ Step 8: Test
 Run the script manually to verify everything works:
 
 ```bash
-/home/mark/test/bash_script/health_monitor.sh
+./health_monitor.sh
 ```
-You should see:
-
-Metrics printed to console
-"✅ Report sent successfully!" message
-Report appears in your Telegram chat within seconds
 
 if you faced an issue 
 Check the log file:
