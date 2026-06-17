@@ -74,6 +74,14 @@ TCHATID="your_telegram_chat_id_here"
 Rename the file as telegram_env then,
 Save with Ctrl + X, then Y, then Enter.
 
+Step 3: Change the source location:
+
+Change the Source location of the telegram_env in the source section in first line on the script
+
+```bash
+source /path/of/where/you/stored/telegram_env
+```
+
 Step 3: Set Secure Permissions
 
 Restrict access to your token file:
