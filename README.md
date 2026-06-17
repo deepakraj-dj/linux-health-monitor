@@ -147,6 +147,8 @@ tail -f /var/log/server-monitor.log
 
 ## Demo / Results
 
+This is how the final output will be in your telegram BOT,
+
 <div align="center">
   <img src="docs/telegram_message.jpg" alt="Script Output" width="300">
 </div>
