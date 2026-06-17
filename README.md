@@ -146,7 +146,10 @@ tail -f /var/log/server-monitor.log
 ```
 
 ## Sample Telegram Output
-![telegram notification](docs/telegram_message.jpg)
+<div align="center">
+  <img src="docs/telegram_message.jpg" alt="Script Output" width="600">
+</div>
+
 
 
  ## What I Learned
