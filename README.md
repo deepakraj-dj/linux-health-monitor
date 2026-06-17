@@ -147,7 +147,7 @@ tail -f /var/log/server-monitor.log
 
 ## Sample Telegram Output
 <div align="center">
-  <img src="docs/telegram_message.jpg" alt="Script Output" width="600">
+  <img src="docs/telegram_message.jpg" alt="Script Output" width="300">
 </div>
 
 The bot reports:
