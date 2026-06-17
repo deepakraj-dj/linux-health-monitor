@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Source token from secure file
-source /home/mark/test/bash_script/telegram_env
+source /path/to/where/stored/telegram_env
 
 TOKEN="$TBOT_TOKEN"
 CHAT_ID="$TCHATID"
