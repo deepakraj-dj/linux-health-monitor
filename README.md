@@ -12,7 +12,7 @@ This project automates server health monitoring using a simple Bash script. Inst
  - Automated execution every 30 minutes via cron jobs
  - Secure token management using separate configuration file 
  - Lightweight implementation with minimal server overhead
- - Direct Telegram notifications to your phone or desktop
+ - Direct Telegram notifications to your phone or desktop 
 
 ## How It All Works Together
 The monitoring solution works in three main Steps:
